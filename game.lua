@@ -114,6 +114,7 @@ function game:keypressed(key, unicode)
 	end
 
 	print(self.pacman.x, self.pacman.y)
+	self.pacman:keypressed(key, unicode)
 end
 
 function game:draw()
@@ -124,8 +125,8 @@ function game:draw()
 	self.map:draw(self.offx, self.offy)
 	self.pacman:draw()
 	-- self.pacman.shape:draw('fill')
-	self.mouse:draw('line')
-	self.toDraw:draw('line')
+	-- self.mouse:draw('line')
+	-- self.toDraw:draw('line')
 end
 
 return game
