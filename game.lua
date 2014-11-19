@@ -98,6 +98,15 @@ function game:canmove(x, y)
 
 end
 
+function game:gamepadpressed(joystick, button)
+	if loveframes.GetState() ~= 'game' then
+		return
+	end
+
+	print('test')
+	print(joystick, button)
+end
+
 function game:keypressed(key, unicode)
 	if loveframes.GetState() ~= 'game' then
 		return
@@ -111,6 +120,8 @@ function game:keypressed(key, unicode)
 		self:canmove(-64, 0)
 	elseif key == 'right' then
 		self:canmove(64, 0)
+	elseif key == 'escape' then
+		love.event.quit()
 	end
 
 	print(self.pacman.x, self.pacman.y)
@@ -125,8 +136,8 @@ function game:draw()
 	self.map:draw(self.offx, self.offy)
 	self.pacman:draw()
 	-- self.pacman.shape:draw('fill')
-	-- self.mouse:draw('line')
-	-- self.toDraw:draw('line')
+	self.mouse:draw('line')
+	self.toDraw:draw('line')
 end
 
 return game
