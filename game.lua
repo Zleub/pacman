@@ -63,6 +63,15 @@ function game:canmovepacman(x, y)
 	end
 end
 
+function game:gamepadpressed(joystick, button)
+	if loveframes.GetState() ~= 'game' then
+		return
+	end
+
+	print('test')
+	print(joystick, button)
+end
+
 function game:keypressed(key, unicode)
 	if loveframes.GetState() ~= 'game' then
 		return
