@@ -26,6 +26,7 @@ function love.mousereleased(x, y, button)
 end
 
 function love.keypressed(key, unicode)
+	menu_keypressed(key, unicode)
 	game:keypressed(key, unicode)
 	loveframes.keypressed(key, unicode)
 end
@@ -37,3 +38,4 @@ end
 function love.textinput(text)
 	loveframes.textinput(text)
 end
+

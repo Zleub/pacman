@@ -1,3 +1,9 @@
+function menu_keypressed(key, unicode)
+	if key == 'return' then
+		ft_new()
+	end
+end
+
 function ft_new()
 	loveframes.SetState('game')
 end

@@ -49,3 +49,12 @@ function spriteup(sprite_file, pixel_row)
 	end
 	return Quadlist
 end
+
+function getTile(tileset, tileid)
+	for k,v in pairs(tileset.tiles) do
+		if v.id == tileid then
+			return v
+		end
+	end
+	return nil
+end

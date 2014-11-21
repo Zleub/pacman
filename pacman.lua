@@ -26,17 +26,23 @@ function pacman.spriteup(sprite_file, pixel_row)
 	return Quadlist
 end
 
-function pacman:init()
+function pacman:init(HC)
+	self.HC = HC
 	self.sprite_file = love.graphics.newImage('Images/sprite.png')
 	self.sprites = self.spriteup(self.sprite_file, 0)
 	self.sprites.index = 1
 	self.x = 64 * 10
 	self.y = 64 * 5
+	self.shape = self.HC:addCircle(self.x + 32, self.y + 32, 31)
 	return self
 end
 
+function pacman:move(x, y)
+	self.x = self.x + x
+	self.y = self.y + y
+end
+
 function pacman:keypressed(key, unicode)
-	print(key)
 	if key == 'up' then
 		self.sprites.index = 7
 	elseif key == 'down' then
@@ -46,7 +52,6 @@ function pacman:keypressed(key, unicode)
 	elseif key == 'right' then
 		self.sprites.index = 1
 	end
-	print(self.sprites.index)
 end
 
 function pacman:draw()
